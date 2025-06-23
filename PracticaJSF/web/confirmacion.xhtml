@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui">
+    <h:head>
+        <title>Confirmación de Pedido</title>
+    </h:head>
+    <h:body>
+        <div class="container mt-5">
+            <h1 class="text-center mb-4">Confirmación de Pedido</h1>
+
+            <div class="alert alert-success text-center mb-4">
+                Su pedido ha sido registrado exitosamente
+            </div>
+
+            <b:panel title="Detalles del Pedido" look="success">
+                <b:panelGrid columns="2">
+                    <h:outputLabel value="Nombre del cliente:" />
+                    <h:outputText value="#{pedidoBean.nombreCliente}" />
+
+                    <h:outputLabel value="Correo electrónico:" />
+                    <h:outputText value="#{pedidoBean.correo}" />
+
+                    <h:outputLabel value="Producto:" />
+                    <h:outputText value="#{pedidoBean.productoSeleccionado.nombre}" />
+
+                    <h:outputLabel value="Precio unitario:" />
+                    <h:outputText value="#{pedidoBean.productoSeleccionado.precio}" />
+
+                    <h:outputLabel value="Cantidad solicitada:" />
+                    <h:outputText value="#{pedidoBean.cantidad}" />
+
+                    <h:outputLabel value="Subtotal:" />
+                    <h:outputText value="#{pedidoBean.productoSeleccionado.precio * pedidoBean.cantidad}" />
+
+                    <h:outputLabel value="Fecha del pedido:" />
+                    <h:outputText value="#{pedidoBean.fechaPedido}" />
+                </b:panelGrid>
+            </b:panel>
+
+            <b:form>
+                <div class="text-center mt-4">
+                    <b:commandButton value="Volver al formulario" action="index" 
+                                     styleClass="btn-secondary" />
+                </div>
+            </b:form>
+        </div>
+    </h:body>
+</html>
